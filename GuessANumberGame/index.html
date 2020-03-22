@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Tyler Carrier" />
+    <title>Ty's Number Guessing Game</title>
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"
+      integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </head>
+  <body
+    style="background-color: #525252;"
+    class="p-3 mb-2 text-black"
+    onLoad="main();"
+  >
+    <div class="container my-auto">
+      <div class="card" style="width: 36rem;">
+        <h2><div class="card-header text-center">Guess A Number!</div></h2>
+        <div class="card-body">
+          <div class="row">
+            <div class="toggler">
+              <div id="effect" class="ui-widget-content ui-corner-all">
+                <p>
+                  Guess a <b>number</b> from 1 to 100. Use the <b>hints</b> to
+                  guess the correct number.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row"></div>
+
+          <div class="row">
+            <div class="col-8">
+              <input
+                class="form-control"
+                placeholder="0"
+                type="text"
+                id="textBox1"
+              />
+            </div>
+            <div class="col-4">
+              <button class="btn btn-primary" onClick="onClickGuess()" ;>
+                Make A Guess!</button
+              ><br />
+            </div>
+          </div>
+          <br />
+          <div class="row">
+            <label>Previous Random Numbers: </label>
+            <select
+              class="form-control"
+              style="margin-left: 2rem; width: 15%"
+              id="addNumberToDropdown"
+            ></select>
+          </div>
+          <br />
+          <br />
+          <div class="row">
+            <div class="col-12">
+              <button class="btn btn-success text-center" onClick="newGame()" ;>
+                Play A New Game
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

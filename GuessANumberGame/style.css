@@ -1,0 +1,36 @@
+/* .toggler {
+  width: 500px;
+  height: 200px;
+}
+#button {
+  padding: 0.5em 1em;
+  text-decoration: none;
+}
+#effect {
+  width: 240px;
+  height: 170px;
+  padding: 0.4em;
+  position: relative;
+}
+#effect h3 {
+  margin: 0;
+  padding: 0.4em;
+  text-align: center;
+} */
+
+h2,
+h3,
+h4,
+p,
+label {
+  color: #525252;
+}
+.card {
+  margin: auto;
+  margin-top: 40px;
+  padding: 10px;
+}
+
+#textBox1 {
+  width: 90%;
+}
