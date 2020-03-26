@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript">
+      function calculateCorrelation() {
+        // ---calculations for set 1---
+        let inputOne = document.getElementById("list1").value;
+        let myArray1 = inputOne.split(",");
+        console.log("myArray1: " + myArray1);
+        for (let i = 0; i < myArray1.length; i++) {
+          myArray1[i] = +myArray1[i];
+        }
+
+        // find the mean
+        let sum1 = 0;
+        for (let i = 0; i < myArray1.length; i++) {
+          sum1 += parseInt(myArray1[i], 10);
+        }
+        console.log("sum1: " + myArray1);
+        let mean1 = sum1 / myArray1.length;
+
+        // find i - mean
+        for (let i = myArray1.length; i >= 0; i--) {
+          myArray1[i] = myArray1[i] - mean1;
+        }
+        myArray1.splice(-1, 1);
+        console.log("myArray1: " + myArray1);
+
+        // find (i - mean) squared
+        let newMyArray1 = [];
+
+        for (let i = 0; i < myArray1.length; i++) {
+          newMyArray1.push(myArray1[i] * myArray1[i]);
+        }
+        console.log("newMyArray1: " + newMyArray1);
+        // find the sum of new array
+        let newSum1 = 0;
+        for (let i = 0; i < newMyArray1.length; i++) {
+          newSum1 += parseInt(newMyArray1[i], 10);
+        }
+        console.log("newSum1: " + newSum1);
+
+        // divide sum by i - number of elements in set
+        let brandNewSum1 = newSum1 / (newMyArray1.length - 1);
+        console.log("brandNewSum1: " + brandNewSum1);
+        // take the sqrt of sum which will return standard deviation for set 2
+        let standardDeviation1 = Math.sqrt(brandNewSum1);
+        console.log("standardDeviation1: " + standardDeviation1);
+        // ---calculations for set 2---
+        let inputTwo = document.getElementById("list2").value;
+
+        console.log("inputTwo: " + inputTwo);
+        let myArray2 = inputTwo.split(",");
+        console.log("myArray2: " + myArray2);
+        for (let i = 0; i < myArray2.length; i++) {
+          myArray2[i] = +myArray2[i];
+        }
+        console.log("myArray2: " + myArray2);
+
+        // find the mean
+        let sum2 = 0;
+        for (let i = 0; i < myArray2.length; i++) {
+          sum2 += parseInt(myArray2[i], 10);
+        }
+        let mean2 = sum2 / myArray1.length;
+
+        // find i - mean
+        for (let i = myArray2.length; i >= 0; i--) {
+          myArray2[i] = myArray2[i] - mean2;
+        }
+        myArray2.splice(-1, 1);
+
+        // find(i - mean) squared
+        let newMyArray2 = [];
+
+        for (let i = 0; i < myArray2.length; i++) {
+          newMyArray2.push(myArray2[i] * myArray2[i]);
+        }
+
+        // find the sum of new array
+        let newSum2 = 0;
+        for (let i = 0; i < newMyArray2.length; i++) {
+          newSum2 += parseInt(newMyArray2[i], 10);
+        }
+
+        // divide sum by i - number of elements in set
+        let brandNewSum2 = newSum2 / (newMyArray2.length - 1);
+
+        // take the sqrt of which will return standard deviation for set 1
+        let standardDeviation2 = Math.sqrt(brandNewSum2);
+
+        // ---final calculations---
+
+        // find myArray1 individual elements times myArray2 individual elements
+        let cumArray = [];
+
+        for (let i = 0; i < myArray1.length; i++) {
+          cumArray[i] = myArray1[i] * myArray2[i];
+        }
+
+        // find sum of myArray1 times myArray2 values
+        let finalArraySum = 0;
+        for (let i = 0; i < cumArray.length; i++) {
+          finalArraySum += parseInt(cumArray[i], 10);
+        }
+
+        // find correlation
+        let correlation =
+          finalArraySum /
+          ((myArray1.length - 1) * standardDeviation1 * standardDeviation2);
+
+        alert("The Correlation between the two sets is " + correlation + "!");
+      }
+    </script>
+    <style>
+      hr {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        border: 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid" style="margin-top: 20px;">
+      <div style="display: flex;">
+        <h1>Correlation Calculator</h1>
+        <img
+          style="margin-left: 2rem; width: 150px; height: 50px"
+          src="img/correlation.png"
+        />
+      </div>
+      <hr />
+      <p>
+        Do your factors correlate? Fill out the following fields to find out!
+      </p>
+      <br />
+      <label>First list of numbers (separate by comma):</label>
+      <input
+        style="width:40%"
+        class="form-control"
+        id="list1"
+        placeholder="ex. 1, 2, 3, 4, 5"
+      />
+      <br /><br />
+      <label>Second list of numbers (separate by comma):</label>
+      <input
+        style="width:40%"
+        class="form-control"
+        id="list2"
+        placeholder="ex. 1, 2, 3, 4, 5"
+      /><br /><br />
+      <button class="btn btn-primary" onclick="calculateCorrelation()">
+        Determine Correlation
+      </button>
+      <br />
+    </div>
+  </body>
+</html>
