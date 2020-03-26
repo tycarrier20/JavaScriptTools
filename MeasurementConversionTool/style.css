@@ -1,0 +1,32 @@
+button {
+  height: 40%;
+  background-color: #b22222 !important;
+  border: none !important;
+}
+
+input {
+  width: 20% !important;
+  margin-right: 20px !important;
+  margin-left: 20px !important;
+}
+
+p {
+  margin-right: 15px !important;
+}
+
+h1 {
+  color: #b22222 !important;
+  margin-top: 2rem !important;
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+i {
+  float: right !important;
+  color: #b22222 !important;
+}

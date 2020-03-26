@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Measurement Converter</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Tyler Carrier" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js"></script>
+    <script
+      src="https://kit.fontawesome.com/c2f60a2f3e.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"
+      integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Measurement Converter</h1>
+      <hr />
+      <p>
+        Type a value into one of the boxes, click the button, <br />
+        and you will receive the equivalent measurement in a new unit.
+      </p>
+      <div id="accordion">
+        <!---->
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+              <i class="fas fa-chevron-down fa-1x"></i>
+              <span
+                class="btn"
+                data-toggle="collapse"
+                data-target="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
+                Calculate centimeters to inches
+              </span>
+            </h5>
+          </div>
+
+          <div
+            id="collapseOne"
+            class="collapse"
+            aria-labelledby="headingOne"
+            data-parent="#accordion"
+          >
+            <div class="card-body">
+              <div class="row">
+                <input
+                  placeholder="cm"
+                  class="form-control"
+                  type="text"
+                  id="cmInput"
+                />
+                <p>=</p>
+                <input
+                  placeholder="in"
+                  class="form-control"
+                  type="text"
+                  id="inOutput"
+                  value="0"
+                  readonly="readonly"
+                />
+                <p>yd</p>
+                <button class="btn btn-primary" onClick="calcCmToIn();">
+                  Calculate centimeters to inches
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!---->
+
+        <div class="card">
+          <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+              <i class="fas fa-chevron-down fa-1x"></i>
+              <span
+                class="btn"
+                data-toggle="collapse"
+                data-target="#collapseTwo"
+                aria-expanded="true"
+                aria-controls="collapseTwo"
+              >
+                Calculate inches to feet
+              </span>
+            </h5>
+          </div>
+
+          <div
+            id="collapseTwo"
+            class="collapse"
+            aria-labelledby="headingTwo"
+            data-parent="#accordion"
+          >
+            <div class="card-body">
+              <div class="row">
+                <input
+                  placeholder="in"
+                  class="form-control"
+                  type="text"
+                  id="inInput"
+                />
+                <p>=</p>
+                <input
+                  placeholder="ft"
+                  class="form-control"
+                  type="text"
+                  id="ftOutput"
+                  value="0"
+                  readonly="readonly"
+                />
+                <p>m</p>
+                <button class="btn btn-primary" onClick="calcInToFt();">
+                  Calculate yards to meters
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!---->
+        <!---->
+        <div class="card">
+          <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+              <i class="fas fa-chevron-down fa-1x"></i>
+              <span
+                class="btn"
+                data-toggle="collapse"
+                data-target="#collapseThree"
+                aria-expanded="true"
+                aria-controls="collapseThree"
+              >
+                Calculate feet to yards
+              </span>
+            </h5>
+          </div>
+
+          <div
+            id="collapseThree"
+            class="collapse"
+            aria-labelledby="headingThree"
+            data-parent="#accordion"
+          >
+            <div class="card-body">
+              <div class="row">
+                <input
+                  placeholder="ft"
+                  class="form-control"
+                  type="text"
+                  id="ftInput"
+                />
+                <p>=</p>
+                <input
+                  placeholder="yd"
+                  class="form-control"
+                  type="text"
+                  id="ydOutput"
+                  value="0"
+                  readonly="readonly"
+                />
+                <p>yd</p>
+                <button class="btn btn-primary" onClick="calcFtToYd();">
+                  Calculate feet to yards
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!---->
+
+        <div class="card">
+          <div class="card-header" id="headingFour">
+            <h5 class="mb-0">
+              <i class="fas fa-chevron-down fa-1x"></i>
+              <span
+                class="btn"
+                data-toggle="collapse"
+                data-target="#collapseFour"
+                aria-expanded="true"
+                aria-controls="collapseFour"
+              >
+                Calculate yards to meters
+              </span>
+            </h5>
+          </div>
+
+          <div
+            id="collapseFour"
+            class="collapse"
+            aria-labelledby="headingFour"
+            data-parent="#accordion"
+          >
+            <div class="card-body">
+              <div class="row">
+                <input
+                  placeholder="yd"
+                  class="form-control"
+                  type="text"
+                  id="ydInput"
+                />
+                <p>=</p>
+                <input
+                  placeholder="m"
+                  class="form-control"
+                  type="text"
+                  id="mOutput"
+                  value="0"
+                  readonly="readonly"
+                />
+                <p>m</p>
+                <button class="btn btn-primary" onClick="calcYdToM();">
+                  Calculate yards to meters
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!---->
+      </div>
+    </div>
+  </body>
+</html>
